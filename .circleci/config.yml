@@ -41,20 +41,6 @@ jobs:
       - run:
           name: run lint
           command: npm run lint -- --color
-  test:
-    <<: *docker_default
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: run test
-          command: npm run testonly:cov -- --no-cache --colors
-      - store_artifacts:
-          path: coverage
-          prefix: coverage
-      - store_test_results:
-          path: junit.xml
   deploy:
     working_directory: /tmp/app
     docker:
