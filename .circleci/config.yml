@@ -123,16 +123,9 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - test:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /.*/
       - deploy:
           context: org-global
           requires:
-            - test
             - lint
           filters:
             tags:
