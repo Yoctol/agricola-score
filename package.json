@@ -1,0 +1,22 @@
+{
+  "name": "agricola_score",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "bottender dev",
+    "lint": "eslint .",
+    "start": "bottender start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bottender": "1.0.0-beta.3",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1"
+  }
+}
