@@ -22,9 +22,6 @@ jobs:
           command: |
             yarn config set cache-folder .yarn-cache
             yarn --frozen-lockfile
-      - run:
-          name: build
-          command: npm run build
       - save_cache:
           key: node-12-cache-{{checksum "yarn.lock"}}
           paths:
