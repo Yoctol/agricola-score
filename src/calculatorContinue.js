@@ -658,7 +658,7 @@ function resultFlex(params) {
         },
         textButton('全部重填', '幫我算分數'),
       ],
-    }
+    },
   ];
 
   // 各項資源數量
