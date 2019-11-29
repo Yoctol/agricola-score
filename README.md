@@ -6,9 +6,9 @@ This project was bootstrapped with
 
 請掃描以下 QRCode 加入好友：
 
-![](images/qrcode.jpg)
+![](doc/qrcode.jpg)
 
 # Screenshots
 
-![](images/1.png)
-![](images/2.png)
+![](doc/1.png)
+![](doc/2.png)
