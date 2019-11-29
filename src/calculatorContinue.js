@@ -2,7 +2,6 @@ const { prompt } = require('./form');
 const quickReply = require('./quickReply');
 
 const nameToKey = {
-  玩家數: 'people',
   田數: 'field',
   柵欄數: 'pasture',
   小麥數: 'grain',
@@ -21,7 +20,6 @@ const nameToKey = {
 };
 
 const keyToName = {
-  people: '玩家數',
   field: '田數',
   pasture: '柵欄數',
   grain: '小麥數',
@@ -38,25 +36,6 @@ const keyToName = {
   bonus: '主要發展卡的的總得分',
   otherBonus: '職業卡和次要發展卡的總得分',
 };
-
-const fieldKeys = [
-  'people',
-  'field',
-  'pasture',
-  'grain',
-  'vegetable',
-  'sheep',
-  'wildBoar',
-  'cattle',
-  'emptyFarmyard',
-  'fencedStable',
-  'room',
-  'roomStyle',
-  'family',
-  'beggingCard',
-  'bonus',
-  'otherBonus',
-];
 
 const scoreTable = {
   field: [
@@ -356,16 +335,6 @@ module.exports = async function calculatorContinue(context) {
     context.state.form.params[nameToKey[edit]] = null;
     context.state.form.params.edit = null;
   }
-
-  // const people = context.state.form.params.people;
-  // if(people == null){
-  //   prompt(context, {
-  //     path:'幫我算分數',
-  //     param: 'people',
-  //   })
-  //   await context.sendText('這場遊戲有幾個人玩?', quickReply(['1', '2', '3', '4']));
-  //   return
-  // }
 
   const field = context.state.form.params.field;
   if (field == null) {
@@ -684,7 +653,23 @@ function resultFlex(params) {
   ];
 
   // 各項資源數量
-  fieldKeys.forEach(key => {
+  [
+    'field',
+    'pasture',
+    'grain',
+    'vegetable',
+    'sheep',
+    'wildBoar',
+    'cattle',
+    'emptyFarmyard',
+    'fencedStable',
+    'room',
+    'roomStyle',
+    'family',
+    'beggingCard',
+    'bonus',
+    'otherBonus',
+  ].forEach(key => {
     const name = keyToName[key];
     bubbleContents.push({
       type: 'box',
