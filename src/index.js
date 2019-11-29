@@ -10,10 +10,17 @@ module.exports = async function App() {
   return chain([
     formMiddleware,
     router([
-      text('follow', greeting), //get menu anyway
+      {
+        predicate: context => {
+          const text = context.event.text || context.event.rawEvent.type
+          return text == 'follow' || text == 'join'
+        },
+        action: greeting,
+      },
       text('幫我算分數', calculatorStart), // get request
       form('幫我算分數', calculatorContinue), // post request
       text('*', greeting),
     ]),
   ]);
 };
+
