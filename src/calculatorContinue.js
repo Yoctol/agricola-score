@@ -3,14 +3,14 @@ const quickReply = require('./quickReply');
 
 const nameToKey = {
   田數: 'field',
-  柵欄數: 'pasture',
+  柵欄圈數: 'pasture',
   小麥數: 'grain',
   蔬菜數: 'vegetable',
   羊數: 'sheep',
   豬數: 'wildBoar',
   牛數: 'cattle',
   空地數: 'emptyFarmyard',
-  柵欄內馬廄數: 'fencedStable',
+  柵欄圈內馬廄數: 'fencedStable',
   房間數: 'room',
   房間類型: 'roomStyle',
   人口數: 'family',
@@ -21,14 +21,14 @@ const nameToKey = {
 
 const keyToName = {
   field: '田數',
-  pasture: '柵欄數',
+  pasture: '柵欄圈數',
   grain: '小麥數',
   vegetable: '蔬菜數',
   sheep: '羊數',
   wildBoar: '豬數',
   cattle: '牛數',
   emptyFarmyard: '空地數',
-  fencedStable: '柵欄內馬廄數',
+  fencedStable: '柵欄圈內馬廄數',
   room: '房間數',
   roomStyle: '房間類型',
   family: '人口數',
@@ -344,7 +344,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你耕了幾片田?',
+      '您耕了幾片田?',
       quickReply(['0', '1', '2', '3', '4', '5'])
     );
     return;
@@ -358,7 +358,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1}$/,
     });
     await context.sendText(
-      '你蓋出幾圈柵欄?',
+      '您蓋出幾圈柵欄圈?',
       quickReply(['0', '1', '2', '3', '4', '5'])
     );
     return;
@@ -372,7 +372,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你有幾個小麥?(手上的以及田裡的)',
+      '您有幾個小麥?(手上的以及田裡的)',
       quickReply(['0', '1', '2', '3', '4', '5', '6', '7', '8'])
     );
     return;
@@ -386,7 +386,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你有幾個蔬菜?(手上的以及田裡的)',
+      '您有幾個蔬菜?(手上的以及田裡的)',
       quickReply(['0', '1', '2', '3', '4'])
     );
     return;
@@ -400,7 +400,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你養了幾頭羊?',
+      '您養了幾頭羊?',
       quickReply(['0', '1', '2', '3', '4', '5', '6', '7', '8'])
     );
     return;
@@ -414,7 +414,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你養了幾頭豬?',
+      '您養了幾頭豬?',
       quickReply(['0', '1', '2', '3', '4', '5', '6', '7'])
     );
     return;
@@ -428,7 +428,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你養了幾頭牛?',
+      '您養了幾頭牛?',
       quickReply(['0', '1', '2', '3', '4', '5', '6'])
     );
     return;
@@ -442,7 +442,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你有幾片未使用的空地?',
+      '您有幾片未使用的空地?',
       quickReply([
         '0',
         '1',
@@ -470,7 +470,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^[01234]$/,
     });
     await context.sendText(
-      '你蓋了幾間在柵欄內的馬廄?',
+      '您蓋了幾間在柵欄圈內的馬廄?',
       quickReply(['0', '1', '2', '3', '4'])
     );
     return;
@@ -484,7 +484,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /(草|磚|石)屋/,
     });
     await context.sendText(
-      '你住在哪種房子? (草屋, 磚屋, 石屋)',
+      '您住在哪種房子? (草屋, 磚屋, 石屋)',
       quickReply(['草屋', '磚屋', '石屋'])
     );
     return;
@@ -497,7 +497,7 @@ module.exports = async function calculatorContinue(context) {
       param: 'room',
       validateRegex: /^\d{1}$/,
     });
-    await context.sendText('你蓋了幾間房間?', quickReply(['2', '3', '4', '5']));
+    await context.sendText('您蓋了幾間房間?', quickReply(['2', '3', '4', '5']));
     return;
   }
 
@@ -508,7 +508,7 @@ module.exports = async function calculatorContinue(context) {
       param: 'family',
       validateRegex: /^[2345]$/,
     });
-    await context.sendText('你們家有幾個人?', quickReply(['2', '3', '4', '5']));
+    await context.sendText('您家有幾個人?', quickReply(['2', '3', '4', '5']));
     return;
   }
 
@@ -520,7 +520,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你拿到幾張乞討卡?',
+      '您拿到幾張乞討卡?',
       quickReply([
         '0',
         '1',
@@ -548,7 +548,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你在主要發展卡上的總得分是?',
+      '您在主要發展卡上的總得分是?',
       quickReply([
         '0',
         '1',
@@ -576,7 +576,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你在職業卡和次要發展卡上的總得分是?',
+      '您在職業卡和次要發展卡上的總得分是?',
       quickReply([
         '0',
         '1',
@@ -599,7 +599,7 @@ module.exports = async function calculatorContinue(context) {
   prompt(context, {
     path: '幫我算分數',
     param: 'edit',
-    validateRegex: /玩家數|田數|柵欄數|小麥數|蔬菜數|羊數|豬數|牛數|空地數|柵欄內馬廄數|房間數|房間類型|人口數|乞討卡|主要發展卡的的總得分|職業卡和次要發展卡的總得分/,
+    validateRegex: /玩家數|田數|柵欄圈數|小麥數|蔬菜數|羊數|豬數|牛數|空地數|柵欄內馬廄數|房間數|房間類型|人口數|乞討卡|主要發展卡的的總得分|職業卡和次要發展卡的總得分/,
   });
   await context.sendFlex(
     '農家樂分數計算結果：',
