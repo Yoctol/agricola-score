@@ -400,7 +400,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你養了幾隻羊?',
+      '你養了幾頭羊?',
       quickReply(['0', '1', '2', '3', '4', '5', '6', '7', '8'])
     );
     return;
@@ -414,7 +414,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你養了幾隻豬?',
+      '你養了幾頭豬?',
       quickReply(['0', '1', '2', '3', '4', '5', '6', '7'])
     );
     return;
@@ -428,7 +428,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你養了幾隻牛?',
+      '你養了幾頭牛?',
       quickReply(['0', '1', '2', '3', '4', '5', '6'])
     );
     return;
@@ -470,7 +470,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^[01234]$/,
     });
     await context.sendText(
-      '你有幾間在柵欄內的馬廄?',
+      '你蓋了幾間在柵欄內的馬廄?',
       quickReply(['0', '1', '2', '3', '4'])
     );
     return;
@@ -548,7 +548,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你的主要發展卡的總得分是?',
+      '你在主要發展卡上的總得分是?',
       quickReply([
         '0',
         '1',
@@ -576,7 +576,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1,2}$/,
     });
     await context.sendText(
-      '你的職業卡和次要發展卡的總得分是?',
+      '你在職業卡和次要發展卡上的總得分是?',
       quickReply([
         '0',
         '1',
@@ -646,10 +646,19 @@ function textButton(label, text) {
 function resultFlex(params) {
   const bubbleContents = [
     {
-      type: 'text',
-      text: '以下是您所輸入的資料：',
-      weight: 'bold',
-    },
+      type: 'box',
+      layout: 'horizontal',
+      margin: 'lg',
+      contents: [
+        {
+          type: 'text',
+          text: '以下是您所輸入的資料：',
+          weight: 'bold',
+          flex: 0,
+        },
+        textButton('全部重填', '幫我算分數'),
+      ],
+    }
   ];
 
   // 各項資源數量
