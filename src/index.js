@@ -12,8 +12,8 @@ module.exports = async function App() {
     router([
       {
         predicate: context => {
-          const text = context.event.text || context.event.rawEvent.type
-          return text == 'follow' || text == 'join'
+          const text = context.event.text || context.event.rawEvent.type;
+          return text == 'follow' || text == 'join';
         },
         action: greeting,
       },
@@ -23,4 +23,3 @@ module.exports = async function App() {
     ]),
   ]);
 };
-
