@@ -3,14 +3,14 @@ const quickReply = require('./quickReply');
 
 const nameToKey = {
   田數: 'field',
-  柵欄圈數: 'pasture',
+  柵欄圈地數: 'pasture',
   小麥數: 'grain',
   蔬菜數: 'vegetable',
   羊數: 'sheep',
   豬數: 'wildBoar',
   牛數: 'cattle',
   空地數: 'emptyFarmyard',
-  柵欄圈內馬廄數: 'fencedStable',
+  柵欄圈地內馬廄數: 'fencedStable',
   房間數: 'room',
   房間類型: 'roomStyle',
   人口數: 'family',
@@ -21,14 +21,14 @@ const nameToKey = {
 
 const keyToName = {
   field: '田數',
-  pasture: '柵欄圈數',
+  pasture: '柵欄圈地數',
   grain: '小麥數',
   vegetable: '蔬菜數',
   sheep: '羊數',
   wildBoar: '豬數',
   cattle: '牛數',
   emptyFarmyard: '空地數',
-  fencedStable: '柵欄圈內馬廄數',
+  fencedStable: '柵欄圈地內馬廄數',
   room: '房間數',
   roomStyle: '房間類型',
   family: '人口數',
@@ -322,9 +322,9 @@ const scoreTable = {
     -15,
   ],
   fencedStable: [0, 1, 2, 3, 4],
-  room草屋: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  room磚屋: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  room石屋: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
+  room木屋: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  room磚屋: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  room石屋: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30],
   family: [0, 3, 6, 9, 12, 15],
 };
 
@@ -358,7 +358,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1}$/,
     });
     await context.sendText(
-      '您蓋出幾圈柵欄圈?',
+      '您蓋出幾圈柵欄圈地?',
       quickReply(['0', '1', '2', '3', '4', '5'])
     );
     return;
@@ -470,7 +470,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^[01234]$/,
     });
     await context.sendText(
-      '您蓋了幾間在柵欄圈內的馬廄?',
+      '您蓋了幾間在柵欄圈地內的馬廄?',
       quickReply(['0', '1', '2', '3', '4'])
     );
     return;
@@ -481,11 +481,11 @@ module.exports = async function calculatorContinue(context) {
     prompt(context, {
       path: '幫我算分數',
       param: 'roomStyle',
-      validateRegex: /(草|磚|石)屋/,
+      validateRegex: /(木|磚|石)屋/,
     });
     await context.sendText(
-      '您住在哪種房子? (草屋, 磚屋, 石屋)',
-      quickReply(['草屋', '磚屋', '石屋'])
+      '您住在哪種房子? (木屋, 磚屋, 石屋)',
+      quickReply(['木屋', '磚屋', '石屋'])
     );
     return;
   }
@@ -497,7 +497,24 @@ module.exports = async function calculatorContinue(context) {
       param: 'room',
       validateRegex: /^\d{1}$/,
     });
-    await context.sendText('您蓋了幾間房間?', quickReply(['2', '3', '4', '5']));
+    await context.sendText(
+      '您蓋了幾間房間?',
+      quickReply([
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '13',
+        '14',
+      ])
+    );
     return;
   }
 
@@ -599,7 +616,7 @@ module.exports = async function calculatorContinue(context) {
   prompt(context, {
     path: '幫我算分數',
     param: 'edit',
-    validateRegex: /玩家數|田數|柵欄圈數|小麥數|蔬菜數|羊數|豬數|牛數|空地數|柵欄內馬廄數|房間數|房間類型|人口數|乞討卡|主要發展卡的的總得分|職業卡和次要發展卡的總得分/,
+    validateRegex: /玩家數|田數|柵欄圈地數|小麥數|蔬菜數|羊數|豬數|牛數|空地數|柵欄內馬廄數|房間數|房間類型|人口數|乞討卡|主要發展卡的的總得分|職業卡和次要發展卡的總得分/,
   });
   await context.sendFlex(
     '農家樂分數計算結果：',
