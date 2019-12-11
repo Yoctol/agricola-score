@@ -5,7 +5,7 @@ const { form, formMiddleware } = require('./form');
 const greeting = require('./greeting');
 const calculatorStart = require('./calculatorStart');
 const calculatorContinue = require('./calculatorContinue');
-const sendLink = require('./sendLink')
+const sendLink = require('./sendLink');
 
 module.exports = async function App() {
   return chain([
