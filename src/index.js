@@ -5,6 +5,7 @@ const { form, formMiddleware } = require('./form');
 const greeting = require('./greeting');
 const calculatorStart = require('./calculatorStart');
 const calculatorContinue = require('./calculatorContinue');
+const sendLink = require('./sendLink')
 
 module.exports = async function App() {
   return chain([
@@ -17,6 +18,7 @@ module.exports = async function App() {
         },
         action: greeting,
       },
+      text('推薦給好友', sendLink),
       text('幫我算分數', calculatorStart), // get request
       form('幫我算分數', calculatorContinue), // post request
       text('*', greeting),

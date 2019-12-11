@@ -498,7 +498,7 @@ module.exports = async function calculatorContinue(context) {
       validateRegex: /^\d{1}$/,
     });
     await context.sendText(
-      '您蓋了幾間房間?',
+      '您家有幾間房間? (包含一開始的兩間)',
       quickReply([
         '2',
         '3',
@@ -616,7 +616,7 @@ module.exports = async function calculatorContinue(context) {
   prompt(context, {
     path: '幫我算分數',
     param: 'edit',
-    validateRegex: /玩家數|田數|柵欄圈地數|小麥數|蔬菜數|羊數|豬數|牛數|空地數|柵欄內馬廄數|房間數|房間類型|人口數|乞討卡|主要發展卡的的總得分|職業卡和次要發展卡的總得分/,
+    validateRegex: /玩家數|田數|柵欄圈地數|小麥數|蔬菜數|羊數|豬數|牛數|空地數|柵欄圈地內馬廄數|房間數|房間類型|人口數|乞討卡|主要發展卡的的總得分|職業卡和次要發展卡的總得分/,
   });
   await context.sendFlex(
     '農家樂分數計算結果：',
