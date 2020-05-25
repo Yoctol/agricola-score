@@ -1,7 +1,7 @@
-const calculatorContinue = require('./calculatorContinue');
+require('./calculatorForm');
+const { getAction } = require('@bottender/proposal-conversation');
 
 module.exports = async function calculatorStart(context) {
   await context.sendText('請填寫以下資訊：');
-  context.state.form.params = {};
-  return calculatorContinue;
+  return getAction('calculatorForm');
 };

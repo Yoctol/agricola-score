@@ -1,5 +1,4 @@
 module.exports = async function sendLink(context) {
-  console.log('sendLink');
   const text = '請好友掃描下方 QRCode\n\n或點擊下方 QRCode 選擇好友';
   const bubble = {
     type: 'bubble',

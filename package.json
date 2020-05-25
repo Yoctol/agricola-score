@@ -9,7 +9,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "bottender": "1.0.0-beta.3",
+    "@bottender/proposal-conversation": "^0.1.0",
+    "bottender": "1.4.6",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
